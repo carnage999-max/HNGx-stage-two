@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import CustomUser
+from .models import Person
 
 
-class CustomUserAdmin(admin.ModelAdmin):
+class PersonAdmin(admin.ModelAdmin):
     list_display = ["name", "date_created"]
         
 
-admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Person, PersonAdmin)

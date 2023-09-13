@@ -1,8 +1,7 @@
 from django.db import models
-import time
 
 
-class CustomUser(models.Model):
+class Person(models.Model):
     name = models.CharField(
         max_length=256,
         unique=True,

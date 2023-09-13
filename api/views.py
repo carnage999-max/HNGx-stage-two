@@ -1,19 +1,18 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .serializers import CustomUserSerializer
-from base.models import CustomUser
-from django.http import HttpResponse, JsonResponse
-from rest_framework.parsers import JSONParser
+from .serializers import PersonSerializer
+from base.models import Person
+from django.http import HttpResponse
 
 
 @api_view(['GET', 'POST'])
 def apiPostGet(request):
     if request.method == "GET":
-        users = CustomUser.objects.all()
-        serializer = CustomUserSerializer(users, many=True)
+        users = Person.objects.all()
+        serializer = PersonSerializer(users, many=True)
         return Response(serializer.data)
     elif request.method == "POST":
-        serializer = CustomUserSerializer(data=request.data)
+        serializer = PersonSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -22,17 +21,22 @@ def apiPostGet(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def apiPutDelete(request, user_id):
     if request.method == "GET":
-        user = CustomUser.objects.get(id=user_id)
-        serializer = CustomUserSerializer(user, many=False)
-        return Response(serializer.data)
+        print(Person.objects.get(id=user_id))
+        try:
+            user = Person.objects.get(id=user_id)
+            print(user)
+            serializer = PersonSerializer(user, many=False)
+            return Response(serializer.data)
+        except:
+            return HttpResponse(f"A user with id {user_id} does not exist")
     elif request.method == "PUT":
-        user = CustomUser.objects.get(id=user_id)
-        serializer = CustomUserSerializer(instance=user, data=request.data)
+        user = Person.objects.get(id=user_id)
+        serializer = PersonSerializer(instance=user, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
     elif request.method == "DELETE":
-        user = CustomUser.objects.get(id=user_id)
+        user = Person.objects.get(id=user_id)
         user.delete()
         return Response("Item Deleted Successfully")
 
