@@ -7,10 +7,10 @@
   - [Person Model](#person-model)
     - [UML diagram](#uml-diagram-for-the-person-model)
 - [Endpoint formats](#endpoints-formats)
-    - [Create Person](#create-a-new-person)
-    - [Get a person](#retrieve-a-person-by-id)
-    - [Update a person by ID](#update-a-person-by-id)
-    - [Delete a person](#delete-a-person-by-id)
+  - [Create Person](#create-a-new-person)
+  - [Get a person](#retrieve-a-person-by-id)
+  - [Update a person by ID](#update-a-person-by-id)
+  - [Delete a person](#delete-a-person-by-id)
 - [Local Development Setup](#local-development-setup)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -23,7 +23,9 @@ Welcome to the documentation for the RESTful API for managing `person` records. 
 
 ## Base URL
 
-The URL for accessing the API is: `https://hngtask11011.pythonanywhere.com/api/7`
+Read the documentation for the api at [https://hngtask11011.pythonanywhere.com](https://hngtask11011.pythonanywhere.com)
+
+The URL for accessing the API is: [https://hngtask11011.pythonanywhere.com/api](https://hngtask11011.pythonanywhere.com/api)
 
 # Person Model
 
@@ -46,6 +48,7 @@ The `Person` model represents individuals in our database. It stores information
        "date_created": "2023-09-13T16:40:22.396820Z"
   }
 ```
+
 ## UML Diagram for the `Person` Model
 
 ![Person Model UML Diagram](https://i.ibb.co/wgbhzyN/person-uml-diagram-drawio.png)
@@ -54,6 +57,7 @@ The `Person` model represents individuals in our database. It stores information
 
 The UML diagram represents the `Person` model, which is used to store information about individuals in the system.
 There are no other tables in the database. Hence, no relationships between tables.
+
 - `+ id: int (PK)`\
    The `id` field is an auto-generated primary key, represented as an integer. It uniquely identifies each person record in the database.
 
@@ -62,8 +66,6 @@ There are no other tables in the database. Hence, no relationships between table
 
 - `+ date_created: datetime`\
    The `date_created` field is an auto-generated timestamp that indicates when the `Person` record was created in the database. It stores date and time information.
-
-
 
 ---
 
@@ -105,6 +107,7 @@ There are no other tables in the database. Hence, no relationships between table
 
 - **Endpoint:** `/api/id`
     ```
+
 - **Response (Success):** HTTP 200 OK
 
     ```json
@@ -170,7 +173,6 @@ There are no other tables in the database. Hence, no relationships between table
 - **Response (Not Found):** HTTP 404 Not Found
 
 ## Local Development Setup
-
 
 ## Prerequisites
 
