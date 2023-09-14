@@ -1,4 +1,0 @@
-
-tpython:S1542	"PRename function "apiPostGet" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÕÄå¬þÿÿÿÿ8â–¦Ó¨1
-vpython:S1542"RRename function "apiPutDelete" to match the regular expression ^[a-z_][a-z0-9_]*$.(áõªèüÿÿÿÿ8ã–¦Ó¨1
-[python:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·8ä–¦Ó¨1
