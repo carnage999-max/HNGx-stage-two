@@ -48,7 +48,7 @@ The `Person` model represents individuals in our database. It stores information
 ```
 ## UML Diagram for the `Person` Model
 
-![Person Model UML Diagram](https://i.ibb.co/ySbKwCq/person-uml-diagram-drawio.png)
+![Person Model UML Diagram](https://i.ibb.co/wgbhzyN/person-uml-diagram-drawio.png)
 
 ### Class: `Person`
 
