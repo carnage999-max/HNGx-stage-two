@@ -29,11 +29,16 @@ def apiPutDelete(request, user_id):
         except:
             return JsonResponse({"error": f"A user with ID {user_id} does not exist"}, status=400)
     elif request.method == "PUT":
-        user = Person.objects.get(id=user_id)
-        serializer = PersonSerializer(instance=user, data=request.data)
+        try:
+            user = Person.objects.get(id=user_id)
+            serializer = PersonSerializer(instance=user, data=request.data)
+        except:
+            return JsonResponse({"error": "User does not exist"}, safe=False, status=400)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, safe=False)
+        else:
+            return JsonResponse({"errors": serializer.errors}, status=400)
     elif request.method == "DELETE":
         try:
             user = Person.objects.get(id=user_id)

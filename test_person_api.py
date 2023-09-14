@@ -1,7 +1,7 @@
 import requests
 
-#ENDPOINT = 'https://hngtask11011.pythonanywhere.com/api/'  # Replace with your API endpoint URL
-ENDPOINT = '127.0.0.1:8000/api'
+ENDPOINT = 'https://hngtask11011.pythonanywhere.com/api/'  # Replace with your API endpoint URL
+
 # Define a list of HTTP methods you want to test
 http_methods = ['GET', 'POST', 'PUT', 'DELETE']
 
@@ -19,20 +19,25 @@ def getSinglePerson():
     print(responses)
 
 def createPerson():
-    data_to_send = {
+    data_to_send = [
         {"name": "John French"},
         {"name": "Frank Hertz"},
         {"name": "Robert Gillingam"},
         {"name": "David Gillingam"}
-    }
+    ]
     for data in data_to_send:
-        responses.append(requests.post(ENDPOINT, data=data))
+        responses.append(requests.post(ENDPOINT, data=data).json())
     print(responses)
+    
+def updatePerson():
+    
 
 for method in http_methods:
     if method == 'GET':
         getAllUsers()
-        getSingleUser()
+        getSinglePerson()
+    elif method == 'POST':
+        createPerson()
     elif method == 'PUT':
         data_to_send = {'key1': 'updated_value1', 'key2': 'updated_value2'}  # Data for PUT request
         response = requests.put(ENDPOINT, json=data_to_send)
