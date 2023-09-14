@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+ <head>
+  <title>Person API</title>
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,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) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; }</style>
+  <style>body { background-color: rgba(43, 43, 43, 255.0); font-size: 14px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(169, 183, 198, 255.0); } a { color: rgba(88, 157, 246, 255.0); } table td, table th { border: 1px solid rgba(81, 81, 81, 255.0); } hr { background-color: rgba(81, 81, 81, 255.0); } kbd, tr { border: 1px solid rgba(81, 81, 81, 255.0); } h6 { color: rgba(120, 120, 120, 255.0); } blockquote { border-left: 2px solid rgba(88, 157, 246, 0.4); } ::-webkit-scrollbar-thumb { background-color: java.awt.Color[r=166,g=166,b=166]; } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.09803921568627451); }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head>
+ <body>
+  <div md-src-pos="0..6190">
+   <h1 id="person-api-documentation" md-src-pos="0..26">Person API Documentation</h1>
+   <h2 id="table-of-contents" md-src-pos="28..48">Table of Contents</h2>
+   <ul md-src-pos="50..652">
+    <li md-src-pos="50..196"><a href="#introduction" md-src-pos="52..81">Introduction</a>
+     <ul md-src-pos="84..196">
+      <li md-src-pos="84..107"><a href="#base-url" md-src-pos="86..107">Base URL</a></li>
+      <li md-src-pos="110..196"><a href="#person-model" md-src-pos="112..141">Person Model</a>
+       <ul md-src-pos="146..196">
+        <li md-src-pos="146..196"><a href="#uml-diagram-for-the-person-model" md-src-pos="148..196">UML diagram</a></li>
+       </ul></li>
+     </ul></li>
+    <li md-src-pos="197..430"><a href="#endpoints-formats" md-src-pos="199..237">Endpoint formats</a>
+     <ul md-src-pos="240..430">
+      <li md-src-pos="240..281"><a href="#create-a-new-person" md-src-pos="244..281">Create Person</a></li>
+      <li md-src-pos="284..328"><a href="#retrieve-a-person-by-id" md-src-pos="288..328">Get a person</a></li>
+      <li md-src-pos="331..382"><a href="#update-a-person-by-id" md-src-pos="335..382">Update a person by ID</a></li>
+      <li md-src-pos="385..430"><a href="#delete-a-person-by-id" md-src-pos="389..430">Delete a person</a></li>
+     </ul></li>
+    <li md-src-pos="431..624"><a href="#local-development-setup" md-src-pos="433..484">Local Development Setup</a>
+     <ul md-src-pos="487..624">
+      <li md-src-pos="487..520"><a href="#prerequisites" md-src-pos="489..520">Prerequisites</a></li>
+      <li md-src-pos="523..554"><a href="#installation" md-src-pos="525..554">Installation</a></li>
+      <li md-src-pos="557..624"><a href="#running-the-development-server" md-src-pos="559..624">Running the Development Server</a></li>
+     </ul></li>
+    <li md-src-pos="625..652"><a href="#conclusion" md-src-pos="627..652">Conclusion</a></li>
+   </ul>
+   <h2 id="introduction" md-src-pos="654..669">Introduction</h2>
+   <p md-src-pos="671..959"><span md-src-pos="671..732">Welcome to the documentation for the RESTful API for managing</span> <code md-src-pos="733..741">person</code> <span md-src-pos="742..750">records.</span> <span md-src-pos="751..786">This API allows you to perform CRUD</span> (<span md-src-pos="788..795">Create,</span> <span md-src-pos="796..801">Read,</span> <span md-src-pos="802..809">Update,</span> <span md-src-pos="810..816">Delete</span>) <span md-src-pos="818..849">operations on person resources.</span> <span md-src-pos="850..856">Below,</span> <span md-src-pos="857..860">you</span>'<span md-src-pos="861..903">ll find information on how to use the API,</span> <span md-src-pos="904..924">including endpoints,</span> <span md-src-pos="925..941">request formats,</span> <span md-src-pos="942..959">and sample usage.</span></p>
+   <h2 id="base-url" md-src-pos="961..972">Base URL</h2>
+   <p md-src-pos="974..1055"><span md-src-pos="974..1006">The URL for accessing the API is</span>: <code md-src-pos="1008..1055">https://hngtask11011.pythonanywhere.com/api/7</code></p>
+   <h1 id="person-model" md-src-pos="1057..1071">Person Model</h1>
+   <p md-src-pos="1073..1241"><span md-src-pos="1073..1076">The</span> <code md-src-pos="1077..1085">Person</code> <span md-src-pos="1086..1131">model represents individuals in our database.</span> <span md-src-pos="1132..1172">It stores information about each person,</span> <span md-src-pos="1173..1241">including their name and the date they were created in the database.</span></p>
+   <h2 id="model-fields" md-src-pos="1243..1258">Model Fields</h2>
+   <ul md-src-pos="1260..1780">
+    <li md-src-pos="1260..1418"><p md-src-pos="1262..1418"><strong md-src-pos="1262..1270"><code md-src-pos="1264..1268">id</code></strong> (Auto-generated primary key, integer): This field is an auto-generated primary key, serving as a unique identifier for each person in the database.</p></li>
+    <li md-src-pos="1420..1534"><p md-src-pos="1422..1534"><strong md-src-pos="1422..1432"><code md-src-pos="1424..1430">name</code></strong> (String): This field stores the name of the person as a string. It represents the person's full name.</p></li>
+    <li md-src-pos="1536..1780"><p md-src-pos="1538..1780"><strong md-src-pos="1538..1556"><code md-src-pos="1540..1554">date_created</code></strong> (Auto-generated timestamp): This field is an auto-generated timestamp that records the date and time when the person record was created in the database. It provides information about when the person was added to our system.</p></li>
+   </ul>
+   <h3 id="example-person" md-src-pos="1782..1800">Example Person</h3>
+   <pre class="code-fence" md-src-pos="1802..1917">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICAgImlkIjogMSwKICAgICAgICJuYW1lIjogIkpvaG4gRG9lIiwKICAgICAgICJkYXRlX2NyZWF0ZWQiOiAiMjAyMy0wOS0xM1QxNjo0MDoyMi4zOTY4MjBaIgogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-json" md-src-pos="1802..1917"><span md-src-pos="1513..1521"></span><span md-src-pos="1521..1525">  {</span>
+<span md-src-pos="1525..1541">       <span style="color: rgb(106, 135, 89);">"id"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(104, 151, 187);">1</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="1541..1568">       <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"John Doe"</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="1568..1621">       <span style="color: rgb(106, 135, 89);">"date_created"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"2023-09-13T16:40:22.396820Z"</span></span>
+<span md-src-pos="1621..1625">  }</span>
+<span md-src-pos="1625..1626"></span><span md-src-pos="1625..1628"></span></code></pre>
+   <h2 id="uml-diagram-for-the-person-model" md-src-pos="1918..1955">UML Diagram for the <code md-src-pos="1941..1949">Person</code> Model</h2>
+   <p md-src-pos="1957..2040"><img src="https://i.ibb.co/ySbKwCq/person-uml-diagram-drawio.png" alt="Person Model UML Diagram" __idea-generated="true" md-src-pos="1957..2040"></p>
+   <h3 id="class--person" md-src-pos="2042..2061">Class: <code md-src-pos="2053..2061">Person</code></h3>
+   <p md-src-pos="2063..2260"><span md-src-pos="2063..2093">The UML diagram represents the</span> <code md-src-pos="2094..2102">Person</code> <span md-src-pos="2103..2109">model,</span> <span md-src-pos="2110..2177">which is used to store information about individuals in the system.</span> <span md-src-pos="2178..2220">There are no other tables in the database.</span> <span md-src-pos="2221..2227">Hence,</span> <span md-src-pos="2228..2260">no relationships between tables.</span></p>
+   <ul md-src-pos="2261..2777">
+    <li md-src-pos="2261..2418"><p md-src-pos="2263..2418"><code md-src-pos="2263..2279">+ id: int (PK)</code><br> The <code md-src-pos="2288..2292">id</code> field is an auto-generated primary key, represented as an integer. It uniquely identifies each person record in the database.</p></li>
+    <li md-src-pos="2420..2581"><p md-src-pos="2422..2581"><code md-src-pos="2422..2435">+ name: str</code><br> The <code md-src-pos="2444..2450">name</code> field is a string that stores the name of the person. It can contain the person's full name or any other name-related information.</p></li>
+    <li md-src-pos="2583..2777"><p md-src-pos="2585..2777"><code md-src-pos="2585..2611">+ date_created: datetime</code><br> The <code md-src-pos="2620..2634">date_created</code> field is an auto-generated timestamp that indicates when the <code md-src-pos="2696..2704">Person</code> record was created in the database. It stores date and time information.</p></li>
+   </ul>
+   <hr>
+   <h2 id="endpoints-formats" md-src-pos="2786..2806">Endpoints formats</h2>
+   <h3 id="create-a-new-person" md-src-pos="2808..2831">Create a New Person</h3>
+   <ul md-src-pos="2833..3296">
+    <li md-src-pos="2833..2855"><p md-src-pos="2835..2855"><strong md-src-pos="2835..2848">Endpoint:</strong> <code md-src-pos="2849..2855">/api</code></p></li>
+    <li md-src-pos="2856..2879"><p md-src-pos="2858..2879"><strong md-src-pos="2858..2874">HTTP Method:</strong> POST</p></li>
+    <li md-src-pos="2880..2958"><p md-src-pos="2882..2899"><strong md-src-pos="2882..2899">Request Body:</strong></p><pre class="code-fence" md-src-pos="2903..2958">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJuYW1lIjogIkpvaG4gRG9lIgogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="2903..2958"><span md-src-pos="2614..2624"></span><span md-src-pos="2624..2626">{</span>
+<span md-src-pos="2626..2648">   <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"John Doe"</span></span>
+<span md-src-pos="2648..2650">}</span>
+<span md-src-pos="2650..2651"></span><span md-src-pos="2662..2669"></span></code></pre></li>
+    <li md-src-pos="2960..3131"><p md-src-pos="2962..3002"><strong md-src-pos="2962..2985">Response (Success):</strong> HTTP 201 Created</p><pre class="code-fence" md-src-pos="3006..3131">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJpZCI6IDEsCiAgICAgIm5hbWUiOiAiSm9obiBEb2UiLAogICAgICJkYXRlX2NyZWF0ZWQiOiAiMjAyMy0wOS0xM1QxNjo0MDoyMi4zOTY4MjBaIgogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="3006..3131"><span md-src-pos="2717..2727"></span><span md-src-pos="2727..2729">{</span>
+<span md-src-pos="2729..2741">   <span style="color: rgb(106, 135, 89);">"id"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(104, 151, 187);">1</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="2741..2764">   <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"John Doe"</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="2764..2813">   <span style="color: rgb(106, 135, 89);">"date_created"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"2023-09-13T16:40:22.396820Z"</span></span>
+<span md-src-pos="2813..2815">}</span>
+<span md-src-pos="2815..2816"></span><span md-src-pos="2835..2842"></span></code></pre></li>
+    <li md-src-pos="3133..3296"><p md-src-pos="3135..3188"><strong md-src-pos="3135..3167">Response (Validation Error):</strong> HTTP 400 Bad Request</p><pre class="code-fence" md-src-pos="3192..3296">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJlcnJvcnMiOiB7CiAgICAgICAgICJuYW1lIjogWyJUaGlzIGZpZWxkIGlzIHJlcXVpcmVkLiJdCiAgICAgfQogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="3192..3296"><span md-src-pos="2903..2913"></span><span md-src-pos="2913..2915">{</span>
+<span md-src-pos="2915..2930">   <span style="color: rgb(106, 135, 89);">"errors"</span><span style="color: rgb(204, 120, 50);">:</span> {</span>
+<span md-src-pos="2930..2973">       <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> [<span style="color: rgb(106, 135, 89);">"This field is required."</span>]</span>
+<span md-src-pos="2973..2978">   }</span>
+<span md-src-pos="2978..2980">}</span>
+<span md-src-pos="2980..2981"></span><span md-src-pos="3000..3007"></span></code></pre></li>
+   </ul>
+   <h3 id="retrieve-a-person-by-id" md-src-pos="3298..3325">Retrieve a Person by ID</h3>
+   <ul md-src-pos="3327..3660">
+    <li md-src-pos="3327..3360"><p md-src-pos="3329..3352"><strong md-src-pos="3329..3342">Endpoint:</strong> <code md-src-pos="3343..3352">/api/id</code></p><pre class="code-fence" md-src-pos="3355..3360">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code md-src-pos="3355..3360"></code></pre></li>
+    <li md-src-pos="3361..3527"><p md-src-pos="3363..3398"><strong md-src-pos="3363..3386">Response (Success):</strong> HTTP 200 OK</p><pre class="code-fence" md-src-pos="3402..3527">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJpZCI6IDEsCiAgICAgIm5hbWUiOiAiSm9obiBEb2UiLAogICAgICJkYXRlX2NyZWF0ZWQiOiAiMjAyMy0wOS0xM1QxNjo0MDoyMi4zOTY4MjBaIgogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="3402..3527"><span md-src-pos="2717..2727"></span><span md-src-pos="2727..2729">{</span>
+<span md-src-pos="2729..2741">   <span style="color: rgb(106, 135, 89);">"id"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(104, 151, 187);">1</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="2741..2764">   <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"John Doe"</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="2764..2813">   <span style="color: rgb(106, 135, 89);">"date_created"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"2023-09-13T16:40:22.396820Z"</span></span>
+<span md-src-pos="2813..2815">}</span>
+<span md-src-pos="2815..2816"></span><span md-src-pos="2835..2842"></span></code></pre></li>
+    <li md-src-pos="3529..3660"><p md-src-pos="3531..3575"><strong md-src-pos="3531..3556">Response (Not Found):</strong> HTTP 404 Not Found</p><pre class="code-fence" md-src-pos="3579..3660">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJlcnJvciI6ICJBIHVzZXIgd2l0aCBJRCwgMSwgZG9lcyBub3QgZXhpc3QiCiAgfQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="3579..3660"><span md-src-pos="3290..3300"></span><span md-src-pos="3300..3302">{</span>
+<span md-src-pos="3302..3350">   <span style="color: rgb(106, 135, 89);">"error"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"A user with ID, 1, does not exist"</span></span>
+<span md-src-pos="3350..3352">}</span>
+<span md-src-pos="3352..3353"></span><span md-src-pos="3364..3371"></span></code></pre></li>
+   </ul>
+   <h3 id="update-a-person-by-id" md-src-pos="3662..3687">Update a Person by id</h3>
+   <ul md-src-pos="3689..4155">
+    <li md-src-pos="3689..3714"><p md-src-pos="3691..3714"><strong md-src-pos="3691..3704">Endpoint:</strong> <code md-src-pos="3705..3714">/api/id</code></p></li>
+    <li md-src-pos="3715..3737"><p md-src-pos="3717..3737"><strong md-src-pos="3717..3733">HTTP Method:</strong> PUT</p></li>
+    <li md-src-pos="3738..3816"><p md-src-pos="3740..3757"><strong md-src-pos="3740..3757">Request Body:</strong></p><pre class="code-fence" md-src-pos="3761..3816">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJuYW1lIjogIkpvbiBTbm93IgogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="3761..3816"><span md-src-pos="3472..3482"></span><span md-src-pos="3482..3484">{</span>
+<span md-src-pos="3484..3506">   <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"Jon Snow"</span></span>
+<span md-src-pos="3506..3508">}</span>
+<span md-src-pos="3508..3509"></span><span md-src-pos="3520..3527"></span></code></pre></li>
+    <li md-src-pos="3818..3984"><p md-src-pos="3820..3855"><strong md-src-pos="3820..3843">Response (Success):</strong> HTTP 200 OK</p><pre class="code-fence" md-src-pos="3859..3984">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJpZCI6IDEsCiAgICAgIm5hbWUiOiAiSm9uIFNub3ciLAogICAgICJkYXRlX2NyZWF0ZWQiOiAiMjAyMy0wOS0xM1QxNjo0MDoyMi4zOTY4MjBaIgogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="3859..3984"><span md-src-pos="3570..3580"></span><span md-src-pos="3580..3582">{</span>
+<span md-src-pos="3582..3594">   <span style="color: rgb(106, 135, 89);">"id"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(104, 151, 187);">1</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="3594..3617">   <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"Jon Snow"</span><span style="color: rgb(204, 120, 50);">,</span></span>
+<span md-src-pos="3617..3666">   <span style="color: rgb(106, 135, 89);">"date_created"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"2023-09-13T16:40:22.396820Z"</span></span>
+<span md-src-pos="3666..3668">}</span>
+<span md-src-pos="3668..3669"></span><span md-src-pos="3688..3695"></span></code></pre></li>
+    <li md-src-pos="3986..4155"><p md-src-pos="3988..4041"><strong md-src-pos="3988..4020">Response (Validation Error):</strong> HTTP 400 Bad Request</p><pre class="code-fence" md-src-pos="4045..4155">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJlcnJvcnMiOiB7CiAgICAgICAgICJuYW1lIjogWyJuYW1lIHNob3VsZCBiZSBhIHN0cmluZyB2YWx1ZSJdCiAgICAgfQogIH0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="4045..4155"><span md-src-pos="3756..3766"></span><span md-src-pos="3766..3768">{</span>
+<span md-src-pos="3768..3783">   <span style="color: rgb(106, 135, 89);">"errors"</span><span style="color: rgb(204, 120, 50);">:</span> {</span>
+<span md-src-pos="3783..3832">       <span style="color: rgb(106, 135, 89);">"name"</span><span style="color: rgb(204, 120, 50);">:</span> [<span style="color: rgb(106, 135, 89);">"name should be a string value"</span>]</span>
+<span md-src-pos="3832..3837">   }</span>
+<span md-src-pos="3837..3839">}</span>
+<span md-src-pos="3839..3840"></span><span md-src-pos="3859..3866"></span></code></pre></li>
+   </ul>
+   <h3 id="delete-a-person-by-id" md-src-pos="4157..4182">Delete a Person by ID</h3>
+   <ul md-src-pos="4184..4400">
+    <li md-src-pos="4184..4209"><p md-src-pos="4186..4209"><strong md-src-pos="4186..4199">Endpoint:</strong> <code md-src-pos="4200..4209">/api/id</code></p></li>
+    <li md-src-pos="4210..4235"><p md-src-pos="4212..4235"><strong md-src-pos="4212..4228">HTTP Method:</strong> DELETE</p></li>
+    <li md-src-pos="4236..4352"><p md-src-pos="4238..4270"><strong md-src-pos="4238..4261">Response (Success):</strong> HTTP 204</p><pre class="code-fence" md-src-pos="4274..4352">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="ewogICAgICJyZXNwb25zZSI6ICJQZXJzb24gRGVsZXRlZCBTdWNjZXNzZnVsbHkiCiAgfQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-json" md-src-pos="4274..4352"><span md-src-pos="3987..3997"></span><span md-src-pos="3997..3999">{</span>
+<span md-src-pos="3999..4044">   <span style="color: rgb(106, 135, 89);">"response"</span><span style="color: rgb(204, 120, 50);">:</span> <span style="color: rgb(106, 135, 89);">"Person Deleted Successfully"</span></span>
+<span md-src-pos="4044..4046">}</span>
+<span md-src-pos="4046..4047"></span><span md-src-pos="4058..4065"></span></code></pre></li>
+    <li md-src-pos="4354..4400"><p md-src-pos="4356..4400"><strong md-src-pos="4356..4381">Response (Not Found):</strong> HTTP 404 Not Found</p></li>
+   </ul>
+   <h2 id="local-development-setup" md-src-pos="4402..4428">Local Development Setup</h2>
+   <h2 id="prerequisites" md-src-pos="4431..4447">Prerequisites</h2>
+   <p md-src-pos="4449..4555"><span md-src-pos="4449..4466">Before you begin,</span> <span md-src-pos="4467..4554">ensure that you have the following software installed on your local development machine</span>:</p>
+   <ul md-src-pos="4557..4791">
+    <li md-src-pos="4557..4623">Python 3.x: <a href="https://www.python.org/downloads/" md-src-pos="4571..4623">Download Python</a></li>
+    <li md-src-pos="4624..4707">Django: <a href="https://docs.djangoproject.com/en/stable/intro/install/" md-src-pos="4634..4707">Install Django</a></li>
+    <li md-src-pos="4708..4791">Git: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" md-src-pos="4715..4791">Install Git</a></li>
+   </ul>
+   <h3 id="installation" md-src-pos="4793..4809">Installation</h3>
+   <ol md-src-pos="4811..4981">
+    <li md-src-pos="4811..4942"><p md-src-pos="4814..4857">Clone the repository to your local machine:</p><pre class="code-fence" md-src-pos="4862..4942">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="Z2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9jYXJuYWdlOTk5LW1heC9ITkd4LXN0YWdlLXR3by5naXQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-bash" md-src-pos="4862..4942"><a class="run-icon code-block" href="#" role="button" data-command="Run:6fdd507423a90b6401e363a7cea210a9" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="4575..4583"></span><span md-src-pos="4583..4646">git clone https://github.com/carnage999-max/HNGx-stage-two.git</span>
+<span md-src-pos="4646..4647"></span><span md-src-pos="4649..4655"></span></code></pre></li>
+    <li md-src-pos="4944..4981"><p md-src-pos="4947..4981">Navigate to the project directory:</p></li>
+   </ol>
+   <pre class="code-fence" md-src-pos="4983..5019">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="Y2QgeW91ci1hcGktbmFtZQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-bash" md-src-pos="4983..5019"><a class="run-icon code-block" href="#" role="button" data-command="Run:7c79c980b8c0634ddaa7c1392c45fab7" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="4696..4706"></span><span md-src-pos="4706..4725">  cd your-api-name</span>
+<span md-src-pos="4725..4726"></span><span md-src-pos="4727..4732"></span></code></pre>
+   <ol start="3" md-src-pos="5021..5053">
+    <li md-src-pos="5021..5053">Create a virtual environment:</li>
+   </ol>
+   <pre class="code-fence" md-src-pos="5055..5094">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="cHl0aG9uIC1tIHZlbnYgdmVudg==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-bash" md-src-pos="5055..5094"><a class="run-icon code-block" href="#" role="button" data-command="Run:2d169a531e42b9f2cf7182ede1eab635" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="4768..4778"></span><span md-src-pos="4778..4800">  python -m venv venv</span>
+<span md-src-pos="4800..4801"></span><span md-src-pos="4802..4807"></span></code></pre>
+   <ol start="4" md-src-pos="5096..5132">
+    <li md-src-pos="5096..5132">Activate the virtual environment:</li>
+   </ol>
+   <ul md-src-pos="5134..5257">
+    <li md-src-pos="5134..5190"><p md-src-pos="5136..5147">On Windows:</p><pre class="code-fence" md-src-pos="5151..5190">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="dmVudlxTY3JpcHRzXGFjdGl2YXRl">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-bash" md-src-pos="5151..5190"><a class="run-icon code-block" href="#" role="button" data-command="Run:1cb3e7f950b4cf107a9f494f9d1733ba" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="4864..4872"></span><span md-src-pos="4872..4896">  venv\Scripts\activate</span>
+<span md-src-pos="4896..4897"></span><span md-src-pos="4898..4903"></span></code></pre></li>
+    <li md-src-pos="5192..5257"><p md-src-pos="5194..5213">On MacOS and Linux:</p><pre class="code-fence" md-src-pos="5217..5257">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="c291cmNlIHZlbnYvYmluL2FjdGl2YXRl">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-bash" md-src-pos="5217..5257"><a class="run-icon code-block" href="#" role="button" data-command="Run:58f40581aa07f7866415a95a29fd99f" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="4930..4938"></span><span md-src-pos="4938..4963">source venv/bin/activate</span>
+<span md-src-pos="4963..4964"></span><span md-src-pos="4965..4970"></span></code></pre></li>
+   </ul>
+   <ol start="5" md-src-pos="5259..5295">
+    <li md-src-pos="5259..5295">Install the project dependencies:</li>
+   </ol>
+   <pre class="code-fence" md-src-pos="5297..5348">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="cGlwIGluc3RhbGwgLXIgcmVxdWlyZW1lbnRzLnR4dA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-bash" md-src-pos="5297..5348"><a class="run-icon code-block" href="#" role="button" data-command="Run:7148812419c220fb479111824a8cce3d" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="5010..5022"></span><span md-src-pos="5022..5054">pip install -r requirements.txt</span>
+<span md-src-pos="5054..5055"></span><span md-src-pos="5056..5061"></span></code></pre>
+   <h3 id="running-the-development-server" md-src-pos="5350..5384">Running the Development Server</h3>
+   <ol md-src-pos="5386..5903">
+    <li md-src-pos="5386..5496"><p md-src-pos="5389..5436">Apply migrations to create the database schema:</p><p md-src-pos="5441..5446"><span md-src-pos="5442..5446">bash</span></p><pre class="code-fence" md-src-pos="5451..5496">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="cHl0aG9uIG1hbmFnZS5weSBtaWdyYXRl">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-bash" md-src-pos="5451..5496"><a class="run-icon code-block" href="#" role="button" data-command="Run:32c7dc234a3295f4ce91b7302573d26b" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="5164..5173"></span><span md-src-pos="5173..5198">python manage.py migrate</span>
+<span md-src-pos="5198..5199"></span><span md-src-pos="5202..5209"></span></code></pre></li>
+    <li md-src-pos="5498..5634"><p md-src-pos="5501..5566">Create a superuser account for admin access (follow the prompts):</p><p md-src-pos="5571..5576"><span md-src-pos="5572..5576">bash</span></p><pre class="code-fence" md-src-pos="5581..5634">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="cHl0aG9uIG1hbmFnZS5weSBjcmVhdGVzdXBlcnVzZXI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-bash" md-src-pos="5581..5634"><a class="run-icon code-block" href="#" role="button" data-command="Run:301c70fd291ceb96d58ea1a7eff4dc2" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="5294..5303"></span><span md-src-pos="5303..5336">python manage.py createsuperuser</span>
+<span md-src-pos="5336..5337"></span><span md-src-pos="5340..5347"></span></code></pre></li>
+    <li md-src-pos="5636..5730"><p md-src-pos="5639..5668">Start the development server:</p><p md-src-pos="5673..5678"><span md-src-pos="5674..5678">bash</span></p><pre class="code-fence" md-src-pos="5683..5730">
+      <div class="code-fence-highlighter-copy-button" data-fence-content="cHl0aG9uIG1hbmFnZS5weSBydW5zZXJ2ZXI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+      </div><code class="language-bash" md-src-pos="5683..5730"><a class="run-icon code-block" href="#" role="button" data-command="Run:383654bd33ed4fdcfea4a8642912b21e" data-commandtype="block"><img src="commandRunner/runrun.png"></a><span md-src-pos="5396..5405"></span><span md-src-pos="5405..5432">python manage.py runserver</span>
+<span md-src-pos="5432..5433"></span><span md-src-pos="5436..5443"></span></code></pre></li>
+    <li md-src-pos="5732..5903"><p md-src-pos="5735..5903">Access the API in your web browser at <code md-src-pos="5773..5797">http://localhost:8000/</code> and the Django admin interface at <code md-src-pos="5832..5862">http://localhost:8000/admin/</code>. Log in with your superuser credentials.</p></li>
+   </ol>
+   <hr>
+   <h2 id="conclusion" md-src-pos="5910..5923">Conclusion</h2>
+   <p md-src-pos="5925..6147"><span md-src-pos="5925..6029">This API documentation provides an overview of the available endpoints and how to interact with the API.</span> <span md-src-pos="6030..6068">For additional information or support,</span> <span md-src-pos="6069..6087">please contact the</span> <a href="mailto:ezekielokebule11011@outlook.com" md-src-pos="6088..6147">API administrator</a></p>
+   <hr>
+   <h1 id="back-to-top" md-src-pos="6154..6189"><a href="#table-of-contents" md-src-pos="6156..6189">Back to top</a></h1>
+  </div>
+
+  <footer>
+    <p>
+      Created by <a href="https://github.com/carnage999-max">11011</a>
+    </p>
+    <p>
+      Use this api <a href="https://github.com/carnage999-max/HNGx-stage-two">here</a>
+    </p>
+  </footer>
+ </body>
+</html>

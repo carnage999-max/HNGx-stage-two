@@ -5,6 +5,12 @@
 - [Introduction](#introduction)
   - [Base URL](#base-url)
   - [Person Model](#person-model)
+    - [UML diagram](#uml-diagram-for-the-person-model)
+- [Endpoint formats](#endpoints-formats)
+    - [Create Person](#create-a-new-person)
+    - [Get a person](#retrieve-a-person-by-id)
+    - [Update a person by ID](#update-a-person-by-id)
+    - [Delete a person](#delete-a-person-by-id)
 - [Local Development Setup](#local-development-setup)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -149,7 +155,7 @@ There are no other tables in the database. Hence, no relationships between table
     }
     ```
 
-### Delete a Person by Name
+### Delete a Person by ID
 
 - **Endpoint:** `/api/id`
 - **HTTP Method:** DELETE

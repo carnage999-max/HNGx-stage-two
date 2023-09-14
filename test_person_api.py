@@ -5,48 +5,67 @@ ENDPOINT = 'https://hngtask11011.pythonanywhere.com/api/'  # Replace with your A
 # Define a list of HTTP methods you want to test
 http_methods = ['GET', 'POST', 'PUT', 'DELETE']
 
-responses = []
 
 def getAllUsers():
-    #gets all the person objects in the database
+    # gets all the person objects in the database
     response = requests.get(ENDPOINT)
-    return print(response.json())
+    return response.json()
+
 
 def getSinglePerson():
     # test GET method for user_ids from 5 to 30
+    responses1 = []
     for id in range(5, 30):
-        responses.append(requests.get(ENDPOINT + str(id)).json())
-    print(responses)
+        responses1.append(requests.get(ENDPOINT + str(id)).json())
+    return responses1
+
 
 def createPerson():
+    responses2 = []
     data_to_send = [
-        {"name": "John French"},
-        {"name": "Frank Hertz"},
-        {"name": "Robert Gillingam"},
-        {"name": "David Gillingam"}
+        {"name": "Guy French"},
+        {"name": "Marcus Hertz"},
+        {"name": "Frenkie Gillingam"},
+        {"name": "Sam Gillingam"},
     ]
     for data in data_to_send:
-        responses.append(requests.post(ENDPOINT, data=data).json())
-    print(responses)
-    
+        responses2.append(requests.post(ENDPOINT, data=data).json())
+    return responses2
+
+
 def updatePerson():
-    
+    responses3 = []
+    data_to_send = [
+        {'7': {"name": "Samuel Gillingam"}, },
+        {'9': {"name": "John English"}, },
+        {'1': {"name": "Ezekiel Okebule Smithson"}, },
+        {'90': {"name": "Samuel Maxwell"}, },
+    ]
+    for data in data_to_send:
+        sub = ''.join([key for key in data.keys()])
+        responses3.append(requests.put(ENDPOINT + sub, data=data[sub]).json())
+    return responses3
+
+
+def deletePerson(id):
+    response = requests.delete(ENDPOINT + str(id))
+    return response.json()
+
 
 for method in http_methods:
     if method == 'GET':
-        getAllUsers()
-        getSinglePerson()
+        print("--------All Users----------\n")
+        print(getAllUsers(), "\n")
+        print("--------Specific Users ----------\n")
+        print(getSinglePerson())
     elif method == 'POST':
-        createPerson()
+        print("The following users would be created:\n")
+        print(createPerson())
+        print("Users Created\n")
     elif method == 'PUT':
-        data_to_send = {'key1': 'updated_value1', 'key2': 'updated_value2'}  # Data for PUT request
-        response = requests.put(ENDPOINT, json=data_to_send)
+        print("The following users would be updated:\n")
+        print(updatePerson())
+        print("Users Updated\n")
     elif method == 'DELETE':
-        response = requests.delete(ENDPOINT)
-
-    # Handle the response
-    # if response.status_code == 200:
-    #     print(f"{method} request was successful")
-    #     response_data = response.json()
-    # else:
-    #     print(f"{method} request failed with status code: {response.status_code}")
+        print(deletePerson(8))
+        print("person deleted")
